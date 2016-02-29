@@ -19,7 +19,7 @@
       "essential": true,
       "entryPoint": null,
       "mountPoints": [],
-      "name": "nginx-upstreams-s3",
+      "name": "ecs-nginx-upstreams-s3",
       "ulimits": null,
       "dockerSecurityOptions": null,
       "environment": [
@@ -51,7 +51,7 @@
       "links": null,
       "workingDirectory": null,
       "readonlyRootFilesystem": null,
-      "image": "lars2000/nginx-upstreams-s3",
+      "image": "lars2000/ecs-nginx-upstreams-s3",
       "command": [
         "upstream simple-app {\n}\n\nserver {\n    listen *:80;\n    location / {\n        proxy_pass http://simple-app;\n    }\n}"
       ],
@@ -63,5 +63,5 @@
     }
   ],
   "volumes": [],
-  "family": "nginx-upstreams-s3"
+  "family": "ecs-nginx-upstreams-s3"
 }
