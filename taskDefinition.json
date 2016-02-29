@@ -1,0 +1,67 @@
+{
+  "requiresAttributes": [],
+  "containerDefinitions": [
+    {
+      "volumesFrom": [],
+      "memory": 128,
+      "extraHosts": null,
+      "dnsServers": null,
+      "disableNetworking": null,
+      "dnsSearchDomains": null,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80,
+          "protocol": "tcp"
+        }
+      ],
+      "hostname": null,
+      "essential": true,
+      "entryPoint": null,
+      "mountPoints": [],
+      "name": "nginx-upstreams-s3",
+      "ulimits": null,
+      "dockerSecurityOptions": null,
+      "environment": [
+        {
+          "name": "AWS_DEFAULT_REGION",
+          "value": "eu-west-1"
+        },
+        {
+          "name": "S3_BUCKET",
+          "value": "private-bucket"
+        },
+        {
+          "name": "INTERVAL",
+          "value": "60"
+        },
+        {
+          "name": "AWS_ACCESS_KEY_ID",
+          "value": "XXXXXXXXXXX"
+        },
+        {
+          "name": "AWS_ECS_CLUSTER",
+          "value": "default"
+        },
+        {
+          "name": "AWS_SECRET_ACCESS_KEY",
+          "value": "XXXXXXXXXXXXXXX"
+        }
+      ],
+      "links": null,
+      "workingDirectory": null,
+      "readonlyRootFilesystem": null,
+      "image": "lars2000/nginx-upstreams-s3",
+      "command": [
+        "upstream simple-app {\n}\n\nserver {\n    listen *:80;\n    location / {\n        proxy_pass http://simple-app;\n    }\n}"
+      ],
+      "user": null,
+      "dockerLabels": null,
+      "logConfiguration": null,
+      "cpu": 10,
+      "privileged": null
+    }
+  ],
+  "volumes": [],
+  "family": "nginx-upstreams-s3"
+}
