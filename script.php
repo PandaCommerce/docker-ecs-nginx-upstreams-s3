@@ -41,7 +41,7 @@
 		private function getContainers($image_id) {
 			$arr = array();
 			for ($i = 0; $i < count($this->containers); $i++) {
-				if (($this->containers[$i]['container_name'] == $image_id) && ($this->containers[$i]['availability_zone'] == $this->availability_zone)) {
+				if (($this->containers[$i]['container_name'] == $image_id) && ($this->containers[$i]['state'] == "RUNNING") && ($this->containers[$i]['availability_zone'] == $this->availability_zone)) {
 					$arr[] = $this->containers[$i];
 				}
 			}
