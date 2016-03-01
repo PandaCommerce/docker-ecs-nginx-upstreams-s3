@@ -54,7 +54,7 @@
 				$str .= "\tserver 127.0.0.1:80;\n";
 			}
 			for ($i = 0; $i < count($containers); $i++) {
-				$ip = reset(explode(":", $containers[$i]['ports']));
+				$ip = $containers[$i]['private_ip'];
 				$port = end(explode(":", reset(explode("-", $containers[$i]['ports']))));
 				$str .= "\tserver ".$ip.":".$port.";\n";
 			}
