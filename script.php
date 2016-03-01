@@ -50,7 +50,7 @@
 		private function getUpstream($image_id) {
 			$str = "upstream ".$image_id." {\n";
 			$containers = $this->getContainers($image_id);
-			if (count($containers) < 1)) {
+			if (count($containers) < 1) {
 				$str .= "\tserver 127.0.0.1:80;\n";
 			}
 			for ($i = 0; $i < count($containers); $i++) {
